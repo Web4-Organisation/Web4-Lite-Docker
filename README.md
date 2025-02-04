@@ -88,6 +88,6 @@ For any inquiries or questions, feel free to contact us:
 
 **Linkspreed Website**
 
-© 2024 Linkspreed UG & Marc Herdina
+© 2025 Linkspreed UG & Marc Herdina
 
 Web4 Lite is part of a growing vision to reshape the digital landscape. We're excited to see what you build!
