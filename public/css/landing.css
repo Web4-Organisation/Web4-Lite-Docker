@@ -79,6 +79,7 @@
 }
 
 .wrap-login100 {
+    border-radius: var(--card_border_radius);
     width: 780px;
     background: var(--common_page_background);
     overflow: hidden;

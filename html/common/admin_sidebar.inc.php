@@ -7,10 +7,10 @@
  * https://linkspreed.com
  * https://web4.one
  *
- * Copyright (c) 2024 Linkspreed UG (hello@linkspreed.com)
- * Copyright (c) 2024 Marc Herdina (marc.herdina@linkspreed.com)
+ * Copyright (c) 2025 Linkspreed UG (hello@linkspreed.com)
+ * Copyright (c) 2025 Marc Herdina (marc.herdina@linkspreed.com)
  * 
- * Web4 Lite (c) 2024 by Linkspreed UG & Marc Herdina is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+ * Web4 Lite (c) 2025 by Linkspreed UG & Marc Herdina is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
  */
 
@@ -113,6 +113,13 @@ if (!defined("APP_SIGNATURE")) {
                     </a>
                 </li>
 
+                <li>
+                    <a class="waves-effect waves-dark <?php if (isset($page_id) && $page_id === "phone_login") { echo "active";} ?>" href="/admin/phone_login" aria-expanded="false">
+                        <i class="ti-mobile"></i>
+                        <span class="hide-menu">Phone Login</span>
+                    </a>
+                </li>
+
                 <li class="nav-devider"></li>
 
                 <li class="nav-small-cap">Moderation</li>
@@ -137,7 +144,7 @@ if (!defined("APP_SIGNATURE")) {
 
                 <li>
                     <a class="waves-effect waves-dark <?php if (isset($page_id) && $page_id === "app") { echo "active";} ?>" href="/admin/app" aria-expanded="false">
-                        <i class="ti-mobile"></i>
+                        <i class="ti-android"></i>
                         <span class="hide-menu">App Settings</span>
                     </a>
                 </li>

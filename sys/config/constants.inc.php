@@ -7,10 +7,10 @@
  * https://linkspreed.com
  * https://web4.one
  *
- * Copyright (c) 2024 Linkspreed UG (hello@linkspreed.com)
- * Copyright (c) 2024 Marc Herdina (marc.herdina@linkspreed.com)
+ * Copyright (c) 2025 Linkspreed UG (hello@linkspreed.com)
+ * Copyright (c) 2025 Marc Herdina (marc.herdina@linkspreed.com)
  * 
- * Web4 Lite (c) 2024 by Linkspreed UG & Marc Herdina is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+ * Web4 Lite (c) 2025 by Linkspreed UG & Marc Herdina is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
  */
 
@@ -157,6 +157,17 @@ $C['SIGNIN_TWITTER'] = 5;
 $C['OAUTH_TYPE_FACEBOOK'] = 0;
 $C['OAUTH_TYPE_GOOGLE'] = 1;
 $C['OAUTH_TYPE_APPLE'] = 2;
+$C['OAUTH_TYPE_PHONE'] = 3;
+
+// Verification
+
+$C['ENVATO_ITEM_ID'] = 13965025; // My Social Network Android = 13965025
+
+$C['ENVATO_ERROR_PCODE_UNKNOWN'] = 90000;
+$C['ENVATO_ERROR_PCODE_INVALID'] = 90001;
+$C['ENVATO_ERROR_PCODE_VERIFIED'] = 90002;
+$C['ENVATO_ERROR_PCODE_REGISTERED'] = 90003;
+$C['ENVATO_ERROR_PCODE_ILLEGAL'] = 90004;
 
 // Video calls
 

@@ -1,0 +1,272 @@
+<?php
+
+    /*!
+ * Linkspreed UG
+ * Web4 Lite published under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. (BY-NC-SA 4.0)
+ *
+ * https://linkspreed.com
+ * https://web4.one
+ *
+ * Copyright (c) 2025 Linkspreed UG (hello@linkspreed.com)
+ * Copyright (c) 2025 Marc Herdina (marc.herdina@linkspreed.com)
+ * 
+ * Web4 Lite (c) 2025 by Linkspreed UG & Marc Herdina is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+ * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
+ */
+
+    if (!admin::isSession()) {
+
+        header("Location: /admin/login");
+        exit;
+    }
+
+    // Administrator info
+
+    $admin = new admin($dbo);
+    $admin->setId(admin::getCurrentAdminId());
+
+    //
+
+    $stats = new stats($dbo);
+    $phone = new phone($dbo);
+
+    $error = false;
+    $error_message = '';
+
+    if (isset($_GET['action'])) {
+
+        $action = isset($_GET['action']) ? $_GET['action'] : '';
+        $id = isset($_GET['id']) ? $_GET['id'] : 0;
+        $accessToken = isset($_GET['access_token']) ? $_GET['access_token'] : '';
+
+        $action = helper::clearText($action);
+        $action = helper::escapeText($action);
+
+        $id = helper::clearInt($id);
+
+        if ($accessToken === admin::getAccessToken() && !APP_DEMO) {
+
+            switch($action) {
+
+                case 'remove': {
+
+                    $phone->c_remove($id);
+
+                    break;
+                }
+
+                default: {
+
+                    break;
+                }
+            }
+
+            header("Location: /admin/phone_login");
+            exit;
+        }
+    }
+
+    if (!empty($_POST)) {
+
+        $authToken = isset($_POST['authenticity_token']) ? $_POST['authenticity_token'] : '';
+
+        $p_code = isset($_POST['p_code']) ? $_POST['p_code'] : 0;
+
+        $c_code = isset($_POST['c_code']) ? $_POST['c_code'] : '';
+        $c_name = isset($_POST['c_name']) ? $_POST['c_name'] : '';
+
+        $p_code = helper::clearInt($p_code);
+
+        $c_code = helper::clearText($c_code);
+        $c_code = helper::escapeText($c_code);
+
+        $c_name = helper::clearText($c_name);
+        $c_name = helper::escapeText($c_name);
+
+        if ($authToken === helper::getAuthenticityToken() && !APP_DEMO) {
+
+            if (strlen($c_name) != 0 && $p_code > 0) {
+
+                $phone->c_add($p_code, $c_code, $c_name);
+            }
+        }
+
+        header("Location: /admin/phone_login");
+        exit;
+    }
+
+    $page_id = "phone_login";
+
+    helper::newAuthenticityToken();
+
+    $css_files = array("mytheme.css");
+    $page_title = "Phone Login | Admin Panel";
+
+    include_once("../html/common/admin_header.inc.php");
+?>
+
+<body class="fix-header fix-sidebar card-no-border">
+
+    <div id="main-wrapper">
+
+        <?php
+
+            include_once("../html/common/admin_topbar.inc.php");
+        ?>
+
+        <?php
+
+            include_once("../html/common/admin_sidebar.inc.php");
+        ?>
+
+        <div class="page-wrapper">
+
+            <div class="container-fluid">
+
+                <div class="row page-titles">
+                    <div class="col-md-5 col-8 align-self-center">
+                        <h3 class="text-themecolor">Dashboard</h3>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/admin/main">Home</a></li>
+                            <li class="breadcrumb-item active">Phone Login</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <?php
+
+                    include_once("../html/common/admin_banner.inc.php");
+                ?>
+
+                <div class="row">
+
+                    <div class="col-lg-12">
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Add New Country</h4>
+                                <h6 class="card-subtitle hide">Some tips:</h6>
+
+                                <form class="form-material m-t-40"  method="post" action="/admin/phone_login" enctype="multipart/form-data">
+
+                                    <input type="hidden" name="authenticity_token" value="<?php echo helper::getAuthenticityToken(); ?>">
+
+                                    <div class="form-group">
+                                        <label for="p_code" class="active">Country mobile phone code (for example: Belgium +32)</label>
+                                        <input class="form-control" id="p_code" type="number" size="3" name="p_code" value="">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="c_name" class="active">Country name (for example: Belgium)</label>
+                                        <input class="form-control" id="c_name" type="text" size="128" name="c_name" value="">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-xs-12">
+                                            <button class="btn btn-info text-uppercase waves-effect waves-light" type="submit">Add</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <?php
+
+                    $result = $phone->c_getList(0);
+                    $inbox_loaded = count($result['items']);
+
+                    if ($inbox_loaded != 0) {
+
+                        ?>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title m-b-0">Countries</h4>
+                                    </div>
+                                    <div class="card-body collapse show">
+                                        <div class="table-responsive">
+                                            <table class="table product-overview">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-left">Id</th>
+                                                        <th>Phone code</th>
+                                                        <th>Country</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="data-table">
+                                                    <?php
+
+                                                        foreach ($result['items'] as $key => $value) {
+
+                                                            draw($value);
+                                                        }
+
+                                                    ?>
+                                                </tbody>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <?php
+
+                    } else {
+
+                        ?>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card text-center">
+                                        <div class="card-body">
+                                            <h4 class="card-title">List is empty.</h4>
+                                            <p class="card-text">This means that there is no data to display :)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php
+                    }
+                ?>
+
+
+            </div> <!-- End Container fluid  -->
+
+            <?php
+
+                include_once("../html/common/admin_footer.inc.php");
+            ?>
+
+        </div> <!-- End Page wrapper  -->
+    </div> <!-- End Wrapper -->
+
+</body>
+
+</html>
+
+<?php
+
+    function draw($itemObj)
+    {
+        ?>
+
+        <tr data-id="<?php echo $itemObj['id']; ?>">
+            <td class="text-left"><?php echo $itemObj['id']; ?></td>
+            <td style="text-align: left;">+<?php echo $itemObj['p_code']; ?></td>
+            <td style="text-align: left;"><?php echo $itemObj['c_name']; ?></td>
+            <td><a class="link" href="/admin/phone_login?id=<?php echo $itemObj['id']; ?>&action=remove&access_token=<?php echo admin::getAccessToken(); ?>">Remove</a></td>
+        </tr>
+
+        <?php
+    }

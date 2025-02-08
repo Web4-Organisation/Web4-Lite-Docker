@@ -6739,7 +6739,7 @@ a.button {
 /*                   my.css                   */
 /*--------------------------------------------*/
 
-.fb-icon-btn.fb-btn-large, .gl-icon-btn.gl-btn-large {
+.fb-icon-btn.fb-btn-large, .gl-icon-btn.gl-btn-large, .phone-icon-btn.phone-btn-large {
     position: relative;
     padding-left: 51px;
     overflow: hidden;
@@ -6792,18 +6792,32 @@ a.button {
     background-color: #4e8ef8;
 }
 
-a.btn-facebook, a.btn-google {
+.btn-phone {
+    border-color: #5A8CF7;
+    border-bottom-color: #4775d9;
+    background-color: #5A8CF7;
+    color: #fff;
+}
+
+.btn-phone:hover {
+
+    border-color: #5A8CF7;
+    border-bottom-color: #4775d9;
+    background-color: #6593f6;
+}
+
+a.btn-facebook, a.btn-google, a.btn-phone {
 
     color: #fff !important;
     text-decoration: none;
 }
 
-.fb-btn-large, .gl-btn-large {
+.fb-btn-large, .gl-btn-large, .phone-btn-large {
     padding: 9px 27px;
     font-size: 14px;
 }
 
-.fb-btn-large .icon.icon-facebook, .gl-btn-large .icon.icon-google {
+.fb-btn-large .icon.icon-facebook, .gl-btn-large .icon.icon-google, .phone-btn-large .icon.icon-phone {
     margin-right: 13px;
 }
 
@@ -6821,6 +6835,14 @@ a.btn-facebook, a.btn-google {
     left: 13px;
 }
 
+.phone-icon-btn.phone-btn-large .icon {
+    position: absolute;
+    font-size: 24px;
+    top: 7px;
+    left: 13px;
+}
+
+
 .icon-facebook {
     background-image: url(/img/facebook.png);
     width: 32px;
@@ -6829,6 +6851,13 @@ a.btn-facebook, a.btn-google {
 
 .icon-google {
     background-image: url(/img/ic_google_logo.png);
+    background-size: cover;
+    width: 24px;
+    height: 24px;
+}
+
+.icon-phone {
+    background-image: url(/img/ic_phone_logo.png);
     background-size: cover;
     width: 24px;
     height: 24px;
@@ -8381,13 +8410,14 @@ button.close:hover {
 
 .reactions-container {
 
+    z-index: 100;
     position: absolute;
     background: var(--reactions_box_background);
     box-shadow: var(--reactions_box_shadow);
     border-radius: 25px 25px;
     height: 50px;
     width: auto;
-    bottom: 37px;
+    bottom: 21px;
     padding: 3px;
     cursor: default;
 }

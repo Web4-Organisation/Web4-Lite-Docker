@@ -7,10 +7,10 @@
  * https://linkspreed.com
  * https://web4.one
  *
- * Copyright (c) 2024 Linkspreed UG (hello@linkspreed.com)
- * Copyright (c) 2024 Marc Herdina (marc.herdina@linkspreed.com)
+ * Copyright (c) 2025 Linkspreed UG (hello@linkspreed.com)
+ * Copyright (c) 2025 Marc Herdina (marc.herdina@linkspreed.com)
  * 
- * Web4 Lite (c) 2024 by Linkspreed UG & Marc Herdina is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+ * Web4 Lite (c) 2025 by Linkspreed UG & Marc Herdina is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
  */
 
@@ -133,7 +133,7 @@
                                 <h4 class="card-title">Amazon S3</h4>
                                 <h6 class="card-subtitle">Store users data on AWS S3</h6>
                                 <h6 class="card-subtitle">If saving to AWS S3 is disabled or configured incorrectly, then user data is saved on your current hosting</h6>
-                                <h6 class="card-subtitle">How to add Amazon s3 support you can read here: <a href="https://docs.web4.one/" target="_blank">https://docs.web4.one/</a></h6>
+                                <h6 class="card-subtitle">How to add Amazon s3 support you can read here: <a href="https://web4.one/help/how_to_add_amazon_s3/" target="_blank">https://web4.one/help/how_to_add_amazon_s3/</a></h6>
 
                                 <form action="/admin/amazon" method="post">
 

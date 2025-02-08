@@ -7,10 +7,10 @@
  * https://linkspreed.com
  * https://web4.one
  *
- * Copyright (c) 2024 Linkspreed UG (hello@linkspreed.com)
- * Copyright (c) 2024 Marc Herdina (marc.herdina@linkspreed.com)
+ * Copyright (c) 2025 Linkspreed UG (hello@linkspreed.com)
+ * Copyright (c) 2025 Marc Herdina (marc.herdina@linkspreed.com)
  * 
- * Web4 Lite (c) 2024 by Linkspreed UG & Marc Herdina is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+ * Web4 Lite (c) 2025 by Linkspreed UG & Marc Herdina is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
  */
 
@@ -292,6 +292,39 @@
     $settings->createValue("agora_app_id", 0, "");
     $settings->createValue("agora_app_certificate", 0, "");
     unset($settings);
+
+    // Phone Login
+
+    $settings = new settings($dbo);
+    $settings->createValue("pl_enabled", 1, "");
+    unset($settings);
+
+    // Countries
+
+    $phone = new phone($dbo);
+
+    $c_list = $phone->c_getList(0);
+
+    if (count($c_list['items']) == 0){
+
+        $phone->c_add(32, "BE", "Belgium");
+        $phone->c_add(380, "UA", "Ukraine");
+        $phone->c_add(90, "TR", "Türkiye");
+        $phone->c_add(972, "IL", "Israel");
+        $phone->c_add(91, "US", "India");
+        $phone->c_add(62, "US", "Indonesia");
+        $phone->c_add(44, "US", "United Kingdom");
+        $phone->c_add(34, "US", "Spain");
+        $phone->c_add(41, "US", "Switzerland");
+        $phone->c_add(234, "US", "Nigeria");
+        $phone->c_add(49, "US", "Germany");
+        $phone->c_add(55, "US", "Brazil");
+        $phone->c_add(1, "US", "Canada");
+        $phone->c_add(82, "US", "South Korea");
+        $phone->c_add(156, "US", "China");
+    }
+
+    unset($phone);
 
     // Add standard feelings
 

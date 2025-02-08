@@ -7,10 +7,10 @@
  * https://linkspreed.com
  * https://web4.one
  *
- * Copyright (c) 2024 Linkspreed UG (hello@linkspreed.com)
- * Copyright (c) 2024 Marc Herdina (marc.herdina@linkspreed.com)
+ * Copyright (c) 2025 Linkspreed UG (hello@linkspreed.com)
+ * Copyright (c) 2025 Marc Herdina (marc.herdina@linkspreed.com)
  * 
- * Web4 Lite (c) 2024 by Linkspreed UG & Marc Herdina is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+ * Web4 Lite (c) 2025 by Linkspreed UG & Marc Herdina is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
  */
 
@@ -205,6 +205,24 @@
                                             <span><?php echo $LANG['action-signup-with'] . " " . $LANG['label-google']; ?></span>
                                         </a>
                                     </p>
+                                <?php
+                            }
+
+                            $settings = new settings($dbo);
+                            $settingsList = $settings->get();
+                            unset($settings);
+
+                            if ($settingsList['pl_enabled']['intValue'] == 1) {
+
+                                ?>
+                                <p>
+                                    <a class="phone-icon-btn phone-btn-large btn-social btn-phone" href="/phone">
+                                            <span class="icon-container">
+                                                <i class="icon icon-phone"></i>
+                                            </span>
+                                        <span><?php echo $LANG['label-auth-phone']; ?></span>
+                                    </a>
+                                </p>
                                 <?php
                             }
                         ?>

@@ -7,10 +7,10 @@
  * https://linkspreed.com
  * https://web4.one
  *
- * Copyright (c) 2024 Linkspreed UG (hello@linkspreed.com)
- * Copyright (c) 2024 Marc Herdina (marc.herdina@linkspreed.com)
+ * Copyright (c) 2025 Linkspreed UG (hello@linkspreed.com)
+ * Copyright (c) 2025 Marc Herdina (marc.herdina@linkspreed.com)
  * 
- * Web4 Lite (c) 2024 by Linkspreed UG & Marc Herdina is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+ * Web4 Lite (c) 2025 by Linkspreed UG & Marc Herdina is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
  */
 
@@ -117,7 +117,7 @@
 								  allowShowMyGallery SMALLINT(6) UNSIGNED DEFAULT 0,
 								  allowShowMyFriends SMALLINT(6) UNSIGNED DEFAULT 0,
 								  allowShowMyGifts SMALLINT(6) UNSIGNED DEFAULT 0,
-                                  allowVideoCalls SMALLINT(6) UNSIGNED DEFAULT 1,
+                          allowVideoCalls SMALLINT(6) UNSIGNED DEFAULT 1,
 								  allowShowMyAgeAndGender SMALLINT(6) UNSIGNED DEFAULT 0,
 								  lowPhotoUrl VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT '',
 								  originPhotoUrl VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT '',
@@ -638,6 +638,16 @@
 								removeAt int(10) UNSIGNED DEFAULT 0,
 								u_agent varchar(300) DEFAULT '',
 								ip_addr CHAR(32) NOT NULL DEFAULT '',
+								PRIMARY KEY  (id)) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci");
+        $sth->execute();
+
+        $sth = $dbo->prepare("CREATE TABLE IF NOT EXISTS countries_list (
+								id int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+                                p_code int(10) UNSIGNED DEFAULT 0,
+                                c_code VARCHAR(8) NOT NULL DEFAULT '',
+								c_name varchar(300) NOT NULL DEFAULT '',
+                                create_at int(10) UNSIGNED DEFAULT 0,
+                                remove_at int(10) UNSIGNED DEFAULT 0,
 								PRIMARY KEY  (id)) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci");
         $sth->execute();
 

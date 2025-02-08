@@ -87,7 +87,7 @@
 
         <?php
 
-            if (isset($page_id) && $page_id === "signup" || isset($page_id) && $page_id === "main" || isset($page_id) && $page_id === "support" || isset($page_id) && $page_id === "restore") {
+            if (isset($page_id) && $page_id === "signup" || isset($page_id) && $page_id === "main" || isset($page_id) && $page_id === "support" || isset($page_id) && $page_id === "restore" || isset($page_id) && $page_id === "phone") {
 
                 ?>
                     <script src="https://www.google.com/recaptcha/api.js?render=<?php echo RECAPTCHA_SITE_KEY; ?>"></script>
@@ -95,7 +95,7 @@
                 <?php
             }
 
-            if (isset($page_id) && $page_id === "settings_otp" || isset($page_id) && $page_id === "settings_services" || isset($page_id) && $page_id === "settings_deactivation") {
+            if (isset($page_id) && $page_id === "settings_otp" || isset($page_id) && $page_id === "settings_services" || isset($page_id) && $page_id === "settings_deactivation" || isset($page_id) && $page_id === "phone") {
 
                 ?>
                     <script src="https://www.google.com/recaptcha/api.js?render=<?php echo RECAPTCHA_SITE_KEY; ?>"></script>

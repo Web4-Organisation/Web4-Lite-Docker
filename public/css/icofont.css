@@ -6693,6 +6693,11 @@ url("../fonts/icofont.woff") format("woff");
   content: "\ed33";
 }
 
+.icofont-envato:before
+{
+  content: "\ed34";
+}
+
 .icofont-evernote:before
 {
   content: "\ed35";

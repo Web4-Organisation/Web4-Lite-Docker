@@ -7,10 +7,10 @@
  * https://linkspreed.com
  * https://web4.one
  *
- * Copyright (c) 2024 Linkspreed UG (hello@linkspreed.com)
- * Copyright (c) 2024 Marc Herdina (marc.herdina@linkspreed.com)
+ * Copyright (c) 2025 Linkspreed UG (hello@linkspreed.com)
+ * Copyright (c) 2025 Marc Herdina (marc.herdina@linkspreed.com)
  * 
- * Web4 Lite (c) 2024 by Linkspreed UG & Marc Herdina is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+ * Web4 Lite (c) 2025 by Linkspreed UG & Marc Herdina is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
  */
 
@@ -294,9 +294,9 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Admob Info</h4>
-                                <h6 class="card-subtitle">How to get banner_ad_unit_id from AdMob: <a href="https://docs.web4.one/" target="_blank">https://docs.web4.one/</a></h6>
-                                <h6 class="card-subtitle">How to get ad_unit_id for Rewarded Ads from Admob: <a href="https://docs.web4.one/" target="_blank">https://docs.web4.one/</a></h6>
-                                <h6 class="card-subtitle">How to create Interstitial ad block you can read here: <a href="https://docs.web4.one/" target="_blank">https://docs.web4.one/</a></h6>
+                                <h6 class="card-subtitle">How to get banner_ad_unit_id from AdMob: <a href="https://web4.one/help/how_to_get_banner_ad_unit_id_from_admob/" target="_blank">https://web4.one/help/how_to_get_banner_ad_unit_id_from_admob/</a></h6>
+                                <h6 class="card-subtitle">How to get ad_unit_id for Rewarded Ads from Admob: <a href="https://web4.one/help/how_to_get_rewarded_ad_unit_id_from_admob/" target="_blank">https://web4.one/help/how_to_get_rewarded_ad_unit_id_from_admob/</a></h6>
+                                <h6 class="card-subtitle">How to create Interstitial ad block you can read here: <a href="https://web4.one/help/how_to_add_interstitial_ad_to_you_android_app/" target="_blank">https://web4.one/help/how_to_add_interstitial_ad_to_you_android_app/</a></h6>
 
                                 <form action="/admin/admob_settings" method="post">
 

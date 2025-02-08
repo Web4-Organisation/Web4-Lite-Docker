@@ -7,10 +7,10 @@
  * https://linkspreed.com
  * https://web4.one
  *
- * Copyright (c) 2024 Linkspreed UG (hello@linkspreed.com)
- * Copyright (c) 2024 Marc Herdina (marc.herdina@linkspreed.com)
+ * Copyright (c) 2025 Linkspreed UG (hello@linkspreed.com)
+ * Copyright (c) 2025 Marc Herdina (marc.herdina@linkspreed.com)
  * 
- * Web4 Lite (c) 2024 by Linkspreed UG & Marc Herdina is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+ * Web4 Lite (c) 2025 by Linkspreed UG & Marc Herdina is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
  */
 
@@ -156,7 +156,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">Adsense units</h4>
                                 <h6 class="card-subtitle">Add ad unit code to display Google ad units or remove ad code to prevent ads from showing.</h6>
-                                <h6 class="card-subtitle">How to create units and get html code you can read here: <a href="https://docs.web4.one/" target="_blank">https://docs.web4.one</a></h6>
+                                <h6 class="card-subtitle">How to create units and get html code you can read here: <a href="https://web4.one/help/how_to_add_adsense_to_you_site/" target="_blank">https://web4.one/help/how_to_add_adsense_to_you_site/</a></h6>
 
                                 <form class="form-material m-t-40" method="post" action="/admin/adsense">
 

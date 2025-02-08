@@ -7,10 +7,10 @@
  * https://linkspreed.com
  * https://web4.one
  *
- * Copyright (c) 2024 Linkspreed UG (hello@linkspreed.com)
- * Copyright (c) 2024 Marc Herdina (marc.herdina@linkspreed.com)
+ * Copyright (c) 2025 Linkspreed UG (hello@linkspreed.com)
+ * Copyright (c) 2025 Marc Herdina (marc.herdina@linkspreed.com)
  * 
- * Web4 Lite (c) 2024 by Linkspreed UG & Marc Herdina is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+ * Web4 Lite (c) 2025 by Linkspreed UG & Marc Herdina is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
  */
 
@@ -36,9 +36,13 @@
 
     $defaultAllowMessages = 0;
 
+    $allowPhoneLoginFeature = 1;
+
     if (!empty($_POST)) {
 
         $authToken = isset($_POST['authenticity_token']) ? $_POST['authenticity_token'] : '';
+
+        $allowPhoneLoginFeature_checkbox = isset($_POST['allowPhoneLoginFeature']) ? $_POST['allowPhoneLoginFeature'] : '';
 
         $allowFacebookAuthorization_checkbox = isset($_POST['allowFacebookAuthorization']) ? $_POST['allowFacebookAuthorization'] : '';
         $allowMultiAccountsFunction_checkbox = isset($_POST['allowMultiAccountsFunction']) ? $_POST['allowMultiAccountsFunction'] : '';
@@ -47,6 +51,15 @@
         $defaultAllowMessages_checkbox = isset($_POST['defaultAllowMessages']) ? $_POST['defaultAllowMessages'] : '';
 
         if ($authToken === helper::getAuthenticityToken() && !APP_DEMO) {
+
+            if ($allowPhoneLoginFeature_checkbox === "on") {
+
+                $allowPhoneLoginFeature = 1;
+
+            } else {
+
+                $allowPhoneLoginFeature = 0;
+            }
 
             if ($allowFacebookAuthorization_checkbox === "on") {
 
@@ -84,6 +97,8 @@
                 $defaultAllowMessages = 0;
             }
 
+            $settings->setValue("pl_enabled", $allowPhoneLoginFeature);
+
             $settings->setValue("allowFacebookAuthorization", $allowFacebookAuthorization);
             $settings->setValue("allowMultiAccountsFunction", $allowMultiAccountsFunction);
             $settings->setValue("RECAPTCHA_SIGNUP_APP", $allowRecaptchaSignupApp);
@@ -94,6 +109,9 @@
     $config = $settings->get();
 
     $arr = array();
+
+    $arr = $config['pl_enabled'];
+    $allowPhoneLoginFeature = $arr['intValue'];
 
     $arr = $config['allowFacebookAuthorization'];
     $allowFacebookAuthorization = $arr['intValue'];
@@ -165,6 +183,11 @@
                                     <input type="hidden" name="authenticity_token" value="<?php echo helper::getAuthenticityToken(); ?>">
 
                                     <div class="form-group">
+
+                                        <p>
+                                            <input type="checkbox" name="allowPhoneLoginFeature" id="allowPhoneLoginFeature" <?php if ($allowPhoneLoginFeature == 1) echo "checked=\"checked\"";  ?> />
+                                            <label for="allowPhoneLoginFeature">Allow Authorization by Mobile Phone Number</label>
+                                        </p>
 
                                         <p style="display: none">
                                             <input type="checkbox" name="allowFacebookAuthorization" id="allowFacebookAuthorization" <?php if ($allowFacebookAuthorization == 1) echo "checked=\"checked\"";  ?> />
