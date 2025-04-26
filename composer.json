@@ -2,7 +2,7 @@
     "name": "linkspreed/web4",
     "description": "Web4 Lite is your open-source foundation to kickstart your own Web4 network!",
     "type": "project",
-    "license": "BY-NC-SA 4.0",
+    "license": "CC-BY-NC-SA-4.0",
     "autoload": {
         "psr-4": {
             "Linkspreed\\Web4\\": "src/"
